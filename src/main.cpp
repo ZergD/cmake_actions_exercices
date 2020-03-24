@@ -3,6 +3,7 @@
 #include <docopt/docopt.h>
 
 #include <Hello.h>
+#include <counter/Counter.h>
 
 using namespace Hello;
 
@@ -35,6 +36,13 @@ int main( int argc, const char * argv[] )
 	}
 	
 	std::cout << Say_Hello( name ) << std::endl;
+
+	std::cout << "La valeur value = " << Counter::value << std::endl;
+
+	// std::cout << "2 La valeur value = " << Counter::value << std::endl;
+	// int new_result = Counter::Count();
+	// std::cout << "La valeur value est maintenant de = " << new_result << std::endl;
+
 
 	return 0;
 }

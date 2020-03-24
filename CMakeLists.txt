@@ -10,6 +10,8 @@ enable_testing()
 add_library(hello
 	src/Hello.h
 	src/Hello.cpp
+	# src/Counter.h
+	# src/Counter.cpp
 )
 target_include_directories(hello
 	PUBLIC
@@ -41,15 +43,15 @@ target_compile_features(docopt
 #
 # Create executable that uses the hello lib to say Hello.
 #
-add_executable(say_hello
+add_executable(say_hello_to_charly
 	src/main.cpp
 )
-target_link_libraries(say_hello
+target_link_libraries(say_hello_to_charly
 	PRIVATE
 		hello
 		docopt
 )
-target_compile_options(hello
+target_compile_options(say_hello_to_charly
 	PRIVATE
 		$<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:
 			-Werror -Wall -Wextra>
@@ -110,4 +112,7 @@ set(CPACK_PACKAGE_INSTALL_DIRECTORY "Hello CPack Component Example")
 
 # This must always be last!
 include(CPack)
+
+set(hello "Hello World")
+message(STATUS "hello, ${hello}")
 
