@@ -32,7 +32,7 @@ add_library(counter
 )
 target_include_directories(counter
 	PUBLIC
-		src
+		src/counter/
 )
 target_compile_options(counter
 	PRIVATE
