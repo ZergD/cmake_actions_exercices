@@ -25,6 +25,22 @@ target_compile_options(hello
 			/W4>
 )
 
+# Added library counter
+add_library(counter
+	src/counter/Counter.cpp
+	src/counter/Counter.h
+)
+target_include_directories(counter
+	PUBLIC
+		src
+)
+target_compile_options(counter
+	PRIVATE
+		$<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:
+			-Werror -Wall -Wextra>
+		$<$<CXX_COMPILER_ID:MSVC>:
+			/W4>
+)
 #
 # Create a library target for the docopt.cpp command line parsing library.
 #
